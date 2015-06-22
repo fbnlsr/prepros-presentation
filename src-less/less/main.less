@@ -1,0 +1,171 @@
+@import "reset";
+@import "normalize";
+@import "colors";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: url(../img/checkers.png);
+	font-family: 'Droid Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: lighten(@basecolor, 30%);
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+/* Clearfix mixin */
+.clearfix {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/* Message box styling */
+.box {
+	width: 100%;
+	padding: 10px;
+	margin: 20px auto;
+	font-size: 14px;
+}
+
+.message(@color) {
+	&:extend(.box);
+	background-color: @color;
+	border: 1px solid darken(@color, 20%);
+	border-radius: 5px;
+
+	span {
+		font-weight: bold;
+	}
+}
+
+/* info boxes */
+.error { .message(#ec7777); }
+.info { .message(#9CC1EE); }
+.warning { .message(#E8E5A6); }
+
+
+.menu {
+	background-color: @basecolor;
+	width: 100%;
+	clear: both;
+
+	select {
+		display: none;
+		width: 250px;
+		margin: auto;
+	}
+
+	nav {
+		display: block;
+		background-color: @basecolor;
+		border-bottom: 3px solid darken(@basecolor, 10%);
+
+		&:after { .clearfix; }
+
+		a {
+			list-style: none;
+			background-color: @basecolor;
+			width: 100px;
+			color: @white;
+			float: left;
+			text-align: center;
+			padding: 10px;
+			background-color: @basecolor;
+			text-decoration: none;
+
+			&:hover {
+				background-color: lighten(@basecolor, 10%);
+			}
+
+		}
+	}
+}
+
+.site-container {
+	background-color: @white;
+	max-width: 960px;
+	margin: auto;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	box-shadow: 0 0 5px @lightgrey;
+
+	&:after {
+		.clearfix;
+	}
+
+	.content {
+		background-color: lighten(@basecolor, 68%);
+		padding: 20px;
+		max-width: 810px;
+		float: left;
+		border-right: 1px solid @lightgrey;
+
+		.photo {
+			max-width: 30%;
+			float: left;
+			border: 1px solid @darkgrey;
+			padding: 0;
+			margin: 0 10px;
+			background-color: lighten(@basecolor, 40%);
+
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+
+	h1 {
+		text-align: center;
+		margin: 0;
+	}
+
+	article {
+		&:after { .clearfix }
+
+		p {
+			line-height: 1.3em;
+			margin-bottom: 2em;
+		}
+	}
+
+	.sidebar {
+		max-width: 150px;
+		float: left;
+		height: 100%;
+		background-color: @white;
+		padding: 20px;
+
+		h2 {
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 1em;
+		}
+
+		ul {
+			list-style: disc;
+			padding-left: 20px;
+		}
+	}
+}
+
+.footer {
+	margin: 20px 0;
+	text-align: center;
+	font-size: 12px;
+	color: @darkgrey;
+}
+
+@import "mobile";

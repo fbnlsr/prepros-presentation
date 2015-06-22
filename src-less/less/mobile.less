@@ -1,0 +1,24 @@
+@media screen and (max-width: 960px) {
+	.menu {
+		padding: 10px;
+		select { display: block; }
+		nav { display: none; }
+	}
+	.site-container {
+		.content {
+			text-align: justify;
+
+			.photo {
+				max-width: 100%;
+				margin: 10px auto;
+				float: none;
+				display: block;
+
+				&:after { .clearfix }
+			}
+		}
+	}
+	.sidebar {
+		display: none;
+	}
+}
